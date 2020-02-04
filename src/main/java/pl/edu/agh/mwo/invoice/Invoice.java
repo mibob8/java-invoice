@@ -10,8 +10,6 @@ public class Invoice {
 	private Collection<Product> products = new ArrayList<>();
 
 	public void addProduct(Product product) {
-		// TODO: implement
-		
 		addProduct(product, 1); 
 	}
 
@@ -23,8 +21,6 @@ public class Invoice {
 		for (int i = 1; i <= quantity; i++)
 			products.add(product);
 		
-		
-		// TODO: implement
 	}
 
 	public BigDecimal getNetValue() {
@@ -32,7 +28,7 @@ public class Invoice {
 		BigDecimal subtotal = new BigDecimal(0);
 		 
 		for(Product product : products) {
-			subtotal.add(product.getPrice());
+			subtotal = subtotal.add(product.getPrice());
 		}
 			 
 		return subtotal;
@@ -54,9 +50,9 @@ public class Invoice {
 		BigDecimal total = new BigDecimal(0);
 		 
 		for(Product product : products) {
-			total = total.add(product.getPrice());
+			total = total.add(product.getPriceWithTax());
 		}
-			 
+		 
 		return total;
 	}
 }
