@@ -118,9 +118,9 @@ public class InvoiceTest {
         Product bread = new TaxFreeProduct("Chleb", new BigDecimal("5"));
 
         invoice.addProduct(bread, 2);
-        invoice.addProduct(bread, 2);
+        invoice.addProduct(bread, 3);
 
-        Assert.assertThat(4, Matchers.comparesEqualTo(invoice.getProductQuantity(bread)));
+        Assert.assertThat(5, Matchers.comparesEqualTo(invoice.getProductQuantity(bread)));
 
     }
 
