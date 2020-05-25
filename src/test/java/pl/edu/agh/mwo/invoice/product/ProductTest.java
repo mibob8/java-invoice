@@ -24,6 +24,15 @@ public class ProductTest {
     }
 
     @Test
+    public void testProductWithExcise(){
+        BootleOfWine bootleOfWine = new BootleOfWine("Wino", new BigDecimal("10"));
+        Assert.assertThat(new BigDecimal("17.86"), Matchers.comparesEqualTo(bootleOfWine.getPriceWithTax()));
+
+        FuelCanister fuelCanister = new FuelCanister("Paliwo", new BigDecimal("10"));
+        Assert.assertThat(new BigDecimal("15.56"), Matchers.comparesEqualTo(fuelCanister.getPriceWithTax()));
+    }
+
+    @Test
     public void testProductPriceAndTaxWithDairyProduct() {
         Product product = new DairyProduct("Szarlotka", new BigDecimal("100.0"));
         Assert.assertThat(new BigDecimal("100"), Matchers.comparesEqualTo(product.getPrice()));
